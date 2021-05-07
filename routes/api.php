@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminUsers;
+use App\Http\Controllers\Cities;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +23,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /*We need a get route here because we are only getting data*/
 Route::get('users',[UserController::class,'getData']);
+
+Route::get('admin',[AdminUsers::class,'getAdminUsers']);
+Route::get('city/{var?}',[Cities::class,'getCities']);
